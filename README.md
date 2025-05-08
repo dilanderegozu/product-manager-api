@@ -1,69 +1,129 @@
-# Product Manager API
+# 🛒 Product Manager API
 
-Node.js ve Express.js ile geliştirilmiş, ürün yönetimini kolaylaştıran bir API uygulaması. CRUD (Create, Read, Update, Delete) işlemlerini destekler.  
+## 🇹🇷 Türkçe
 
-## Özellikler  
-- Ürün ekleme, listeleme, güncelleme ve silme işlemleri  
-- Fiyat aralığına göre filtreleme (`gt`, `gte`, `lt`, `lte`)  
-- Kategori bazlı ürün listeleme  
+**Product Manager API**, Node.js ve Express.js kullanılarak geliştirilmiş, ürünleri yönetmek ve filtrelemek için kullanılan bir backend API'sidir. API, ürünleri fiyat, kategori ve diğer kriterlere göre filtreleyebilmenizi sağlar.
 
-## Kurulum  
-Projeyi klonlayın:  
+### 🚀 Özellikler
+
+- Ürün ekleme, güncelleme, silme işlemleri
+- Fiyat aralığına göre filtreleme (`gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `exists`)
+- Kategori bazlı ürün listeleme
+- Ürünleri belirli kriterlere göre sıralama
+- MongoDB ile veri saklama
+
+### 🛠️ Teknolojiler
+
+- **Node.js** – JavaScript çalışma zamanı
+- **Express.js** – Web uygulama çatısı
+- **MongoDB & Mongoose** – Veritabanı ve ODM
+- **dotenv** – Ortam değişkenleri yönetimi
+
+### ⚙️ Kurulum
+
 ```bash
-git clone https://github.com/kullanici-adin/product-manager-api.git
-```
-
-Dizine gidin:  
-```bash
+git clone https://github.com/dilanderegozu/product-manager-api.git
 cd product-manager-api
-```
-
-Gerekli bağımlılıkları yükleyin:  
-```bash
 npm install
-```
-
-## Ortam Değişkenleri  
-Bir `.env` dosyası oluşturarak aşağıdaki değişkenleri ekleyin:  
-```env
-PORT=5000
-MONGO_URI=your_mongo_connection_string
-```
-
-## Çalıştırma  
-Uygulamayı başlatın:  
-```bash
+cp .env.example .env
+# .env dosyasına gerekli bilgileri girin: MONGO_URI
 npm run dev
 ```
 
-API, [http://localhost:5000](http://localhost:5000) adresinde çalışacaktır.  
+### 📁 Proje Yapısı
 
-## API Dökümantasyonu  
-
-| Metot | Endpoint            | Açıklama                 |
-|--------|---------------------|--------------------------|
-| GET    | `/products`        | Tüm ürünleri listele     |
-| POST   | `/products`        | Yeni ürün ekle           |
-| GET    | `/products/:id`    | ID'ye göre ürün getir    |
-| PUT    | `/products/:id`    | Ürünü güncelle           |
-| DELETE | `/products/:id`    | Ürünü sil                |
-
-## Filtreleme  
-Belirli kriterlere göre ürünleri filtreleyebilirsiniz:  
-```bash
-GET /products?price[gt]=100&price[lte]=500
-GET /products?category=electronics
+```
+product-manager-api/
+├── config/
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── utils/
+├── validations/
+├── app.js
+└── server.js
 ```
 
-| Sorgu Parametresi | Açıklama                    |
-|-------------------|-----------------------------|
-| `gt`             | Belirtilen değerden büyük   |
-| `gte`            | Belirtilen değerden büyük veya eşit |
-| `lt`             | Belirtilen değerden küçük   |
-| `lte`            | Belirtilen değerden küçük veya eşit |
-| `eq`            | Belirtilen değerden eşit |
-| `ne`             | Belirtilen değere eşit olmayan   |
-| `exists`            | Alanın var olup olmadığını |
+### ✅ API Uç Noktaları
 
-## Lisans  
-Bu proje MIT Lisansı ile lisanslanmıştır.
+| Yöntem | URL                  | Açıklama                 | Koruma |
+|--------|----------------------|--------------------------|--------|
+| GET    | `/products`          | Tüm ürünleri listele     | ❌     |
+| GET    | `/products/:id`      | ID'ye göre ürün getir    | ❌     |
+| POST   | `/products`          | Yeni ürün oluştur        | ✅ Admin |
+| PUT    | `/products/:id`      | Ürünü güncelle           | ✅ Admin |
+| DELETE | `/products/:id`      | Ürünü sil                | ✅ Admin |
+
+### 📄 Lisans
+
+Bu proje MIT lisansı ile lisanslanmıştır.
+
+### 📬 İletişim
+
+GitHub üzerinden [@dilanderegozu](https://github.com/dilanderegozu) ile iletişime geçebilirsiniz.
+
+---
+
+## 🇬🇧 English
+
+**Product Manager API** is a backend API developed using Node.js and Express.js for managing and filtering products. The API allows you to filter products by price, category, and other criteria.
+
+### 🚀 Features
+
+- Add, update, and delete products
+- Price range filtering (`gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `exists`)
+- Category-based product listing
+- Sort products by specific criteria
+- Data storage with MongoDB
+
+### 🛠️ Technologies Used
+
+- **Node.js** – JavaScript runtime
+- **Express.js** – Web framework
+- **MongoDB & Mongoose** – Database and ODM
+- **dotenv** – Environment variable management
+
+### ⚙️ Installation
+
+```bash
+git clone https://github.com/dilanderegozu/product-manager-api.git
+cd product-manager-api
+npm install
+cp .env.example .env
+# Fill in .env with: MONGO_URI
+npm run dev
+```
+
+### 📁 Project Structure
+
+```
+product-manager-api/
+├── config/
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── utils/
+├── validations/
+├── app.js
+└── server.js
+```
+
+### ✅ API Endpoints
+
+| Method | URL                  | Description             | Protected |
+|--------|----------------------|-------------------------|-----------|
+| GET    | `/products`          | Get all products        | ❌        |
+| GET    | `/products/:id`      | Get product by ID       | ❌        |
+| POST   | `/products`          | Create a new product    | ✅ Admin  |
+| PUT    | `/products/:id`      | Update a product        | ✅ Admin  |
+| DELETE | `/products/:id`      | Delete a product        | ✅ Admin  |
+
+### 📄 License
+
+This project is licensed under the MIT License.
+
+### 📬 Contact
+
+Feel free to reach out via GitHub: [@dilanderegozu](https://github.com/dilanderegozu)
