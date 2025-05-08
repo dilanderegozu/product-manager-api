@@ -61,6 +61,9 @@ GET /products?category=electronics
 | `gte`            | Belirtilen değerden büyük veya eşit |
 | `lt`             | Belirtilen değerden küçük   |
 | `lte`            | Belirtilen değerden küçük veya eşit |
+| `eq`            | Belirtilen değerden eşit |
+| `ne`             | Belirtilen değere eşit olmayan   |
+| `exists`            | Alanın var olup olmadığını |
 
 ## Lisans  
 Bu proje MIT Lisansı ile lisanslanmıştır.
